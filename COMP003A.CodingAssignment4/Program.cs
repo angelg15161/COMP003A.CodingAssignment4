@@ -12,167 +12,177 @@ class Program
     {
         Console.WriteLine("Welcome to the Inventory Management System! ");  // Welcome user 
         
+        // Name variable and assign default values
         string[] products = new string[10]; 
         int[] quantities = new int[10];
         int count = 0;
         double average = 0.0;
         bool exit = true;
-
-        while (exit)
+        
+        
+        while (exit)    // Menu loop
         {
             Console.WriteLine("\nMenu: \n1. Add a product. \n2. Update product quantity. \n3. View inventory quantity. \n4. Exit.");
             Console.Write("Enter your choice (1-4): ");
-            int choice = int.Parse(Console.ReadLine());
+            try
+            { 
+                int choice = int.Parse(Console.ReadLine());
+                
+                if (choice == 1)
+                {
+                    CycleProducts(products);
+                    CycleQuantities(quantities);
+                }
+                else if (choice == 2)
+                {
+                    Console.Write("\nEnter the product name: ");
+                    string productName = Console.ReadLine();
 
-            if (choice == 1)
-            {
-                CycleProducts(products);
-                CycleQuantities(quantities);
-            }
-            else if (choice == 2)
-            {
-                Console.Write("\nEnter the product name: ");
-                string productName = Console.ReadLine();
+                    if (productName == products[0])
+                    {
+                        Console.Write($"Enter the new quantity for {products[0]}: ");
+                        quantities[0] = int.Parse(Console.ReadLine());
+                        Console.WriteLine("The product quantity has successfully been updated.");
+                    }
+                    else if (productName == products[1])
+                    {
+                        Console.Write($"Enter the new quantity for {products[1]}: ");
+                        quantities[1] = int.Parse(Console.ReadLine());
+                        Console.WriteLine("The product quantity has successfully been updated.");
+                    }
+                    else if (productName == products[2])
+                    {
+                        Console.Write($"Enter the new quantity for {products[2]}: ");
+                        quantities[2] = int.Parse(Console.ReadLine());
+                        Console.WriteLine("The product quantity has successfully been updated.");
+                    }
+                    else if (productName == products[3])
+                    {
+                        Console.Write($"Enter the new quantity for {products[3]}: ");
+                        quantities[3] = int.Parse(Console.ReadLine());
+                        Console.WriteLine("The product quantity has successfully been updated.");
+                    }
+                    else if (productName == products[4])
+                    {
+                        Console.Write($"Enter the new quantity for {products[4]}: ");
+                        quantities[4] = int.Parse(Console.ReadLine());
+                        Console.WriteLine("The product quantity has successfully been updated.");
+                    }
+                    else if (productName == products[5])
+                    {
+                        Console.Write($"Enter the new quantity for {products[5]}: ");
+                        quantities[5] = int.Parse(Console.ReadLine());
+                        Console.WriteLine("The product quantity has successfully been updated.");
+                    }
+                    else if (productName == products[6])
+                    {
+                        Console.Write($"Enter the new quantity for {products[6]}: ");
+                        quantities[6] = int.Parse(Console.ReadLine());
+                        Console.WriteLine("The product quantity has successfully been updated.");
+                    }
+                    else if (productName == products[7])
+                    {
+                        Console.Write($"Enter the new quantity for {products[7]}: ");
+                        quantities[7] = int.Parse(Console.ReadLine());
+                        Console.WriteLine("The product quantity has successfully been updated.");
+                    }
+                    else if (productName == products[8])
+                    {
+                        Console.Write($"Enter the new quantity for {products[8]}: ");
+                        quantities[8] = int.Parse(Console.ReadLine());
+                        Console.WriteLine("The product quantity has successfully been updated.");
+                    }
+                    else if (productName == products[9])
+                    {
+                        Console.Write($"Enter the new quantity for {products[9]}: ");
+                        quantities[9] = int.Parse(Console.ReadLine());
+                        Console.WriteLine("The product quantity has successfully been updated.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Product not found, please try again.");
+                    }
+                }
+                else if (choice == 3)
+                {
+                    if (products[0] == null)
+                    {
+                        Console.WriteLine("\nProduct list is empty!");
+                        continue;
+                    }
+                
+                    Console.WriteLine("\nInventory summary: ");
 
-                if (productName == products[0])
-                {
-                    Console.Write($"Enter the new quantity for {products[0]}: ");
-                    quantities[0] = int.Parse(Console.ReadLine());
-                    Console.WriteLine("The product quantity has successfully been updated.");
+                    if (products[0] != null)
+                    {
+                        Console.WriteLine($"- {products[0]}: {quantities[0]}");
+                    }
+
+                    if (products[1] != null)
+                    {
+                        Console.WriteLine($"- {products[1]}: {quantities[1]}");
+                    }
+
+                    if (products[2] != null)
+                    {
+                        Console.WriteLine($"- {products[2]}: {quantities[2]}");
+                    }
+
+                    if (products[3] != null)
+                    {
+                        Console.WriteLine($"- {products[3]}: {quantities[3]}");
+                    }
+
+                    if (products[4] != null)
+                    {
+                        Console.WriteLine($"- {products[4]}: {quantities[4]}");
+                    }
+                    
+                    if (products[5] != null)
+                    {
+                        Console.WriteLine($"- {products[5]}: {quantities[5]}");
+                    }
+
+                    if (products[6] != null)
+                    {
+                        Console.WriteLine($"- {products[6]}: {quantities[6]}");
+                    }
+
+                    if (products[7] != null)
+                    {
+                        Console.WriteLine($"- {products[7]}: {quantities[7]}");
+                    }
+
+                    if (products[8] != null)
+                    {
+                        Console.WriteLine($"- {products[8]}: {quantities[8]}");
+                    }
+
+                    if (products[9] != null)
+                    {
+                        Console.WriteLine($"- {products[9]}: {quantities[9]}");
+                    }
+                
+
+                    count = Count(count, quantities);
+                    average = AverageQuantity(average, quantities);
+                    Console.WriteLine($"Total Products: {count}");
+                    Console.WriteLine($"Total Quantity: {TotalQuantity(quantities)}");
+                    Console.WriteLine($"Average Quantity: {average}");
                 }
-                else if (productName == products[1])
+                else if (choice == 4)
                 {
-                    Console.Write($"Enter the new quantity for {products[1]}: ");
-                    quantities[1] = int.Parse(Console.ReadLine());
-                    Console.WriteLine("The product quantity has successfully been updated.");
-                }
-                else if (productName == products[2])
-                {
-                    Console.Write($"Enter the new quantity for {products[2]}: ");
-                    quantities[2] = int.Parse(Console.ReadLine());
-                    Console.WriteLine("The product quantity has successfully been updated.");
-                }
-                else if (productName == products[3])
-                {
-                    Console.Write($"Enter the new quantity for {products[3]}: ");
-                    quantities[3] = int.Parse(Console.ReadLine());
-                    Console.WriteLine("The product quantity has successfully been updated.");
-                }
-                else if (productName == products[4])
-                {
-                    Console.Write($"Enter the new quantity for {products[4]}: ");
-                    quantities[4] = int.Parse(Console.ReadLine());
-                    Console.WriteLine("The product quantity has successfully been updated.");
-                }
-                else if (productName == products[5])
-                {
-                    Console.Write($"Enter the new quantity for {products[5]}: ");
-                    quantities[5] = int.Parse(Console.ReadLine());
-                    Console.WriteLine("The product quantity has successfully been updated.");
-                }
-                else if (productName == products[6])
-                {
-                    Console.Write($"Enter the new quantity for {products[6]}: ");
-                    quantities[6] = int.Parse(Console.ReadLine());
-                    Console.WriteLine("The product quantity has successfully been updated.");
-                }
-                else if (productName == products[7])
-                {
-                    Console.Write($"Enter the new quantity for {products[7]}: ");
-                    quantities[7] = int.Parse(Console.ReadLine());
-                    Console.WriteLine("The product quantity has successfully been updated.");
-                }
-                else if (productName == products[8])
-                {
-                    Console.Write($"Enter the new quantity for {products[8]}: ");
-                    quantities[8] = int.Parse(Console.ReadLine());
-                    Console.WriteLine("The product quantity has successfully been updated.");
-                }
-                else if (productName == products[9])
-                {
-                    Console.Write($"Enter the new quantity for {products[9]}: ");
-                    quantities[9] = int.Parse(Console.ReadLine());
-                    Console.WriteLine("The product quantity has successfully been updated.");
+                    exit = false;
                 }
                 else
                 {
-                    Console.WriteLine("Product not found, please try again.");
+                    Console.WriteLine("Invalid input. Please select a number 1-4.");    // Prompts user to select number 1-4 if another number was selected
                 }
+            
             }
-            else if (choice == 3)
+            catch (Exception)
             {
-                if (products[0] == null)
-                {
-                    Console.WriteLine("\nProduct list is empty!");
-                    continue;
-                }
-                
-                Console.WriteLine("\nInventory summary: ");
-
-                if (products[0] != null)
-                {
-                    Console.WriteLine($"- {products[0]}: {quantities[0]}");
-                }
-
-                if (products[1] != null)
-                {
-                    Console.WriteLine($"- {products[1]}: {quantities[1]}");
-                }
-
-                if (products[2] != null)
-                {
-                    Console.WriteLine($"- {products[2]}: {quantities[2]}");
-                }
-
-                if (products[3] != null)
-                {
-                    Console.WriteLine($"- {products[3]}: {quantities[3]}");
-                }
-
-                if (products[4] != null)
-                {
-                    Console.WriteLine($"- {products[4]}: {quantities[4]}");
-                }
-
-                if (products[5] != null)
-                {
-                    Console.WriteLine($"- {products[5]}: {quantities[5]}");
-                }
-
-                if (products[6] != null)
-                {
-                    Console.WriteLine($"- {products[6]}: {quantities[6]}");
-                }
-
-                if (products[7] != null)
-                {
-                    Console.WriteLine($"- {products[7]}: {quantities[7]}");
-                }
-
-                if (products[8] != null)
-                {
-                    Console.WriteLine($"- {products[8]}: {quantities[8]}");
-                }
-
-                if (products[9] != null)
-                {
-                    Console.WriteLine($"- {products[9]}: {quantities[9]}");
-                }
-                
-
-                count = Count(count, quantities);
-                average = AverageQuantity(average, quantities);
-                Console.WriteLine($"Total Products: {count}");
-                Console.WriteLine($"Total Quantity: {TotalQuantity(quantities)}");
-                Console.WriteLine($"Average Quantity: {average}");
-            }
-            else if (choice == 4)
-            {
-                exit = false;
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Try again.");
+                Console.WriteLine("Invalid input. Try again."); // Tells the user they entered a wrong input, this allows the user to try again instead of ending the program. 
             }
         }
     }
