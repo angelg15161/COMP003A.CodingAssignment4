@@ -4,9 +4,6 @@
     Faculty: Jonathan Cruz
     Purpose: Inventory management application with a minimum of 10 elements in the collection.
 */
-
-using System.Net;
-
 namespace COMP003A.CodingAssignment4;
 
 class Program
