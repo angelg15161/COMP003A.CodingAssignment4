@@ -1,7 +1,7 @@
 ﻿/*
     Author: Angel Gomez
     Course: COMP003A
-    Faculty: Jonathan Cruz
+    Faculty: Jonathan Cruz 
     Purpose: Inventory management application with a minimum of 10 elements in the collection.
 */
 namespace COMP003A.CodingAssignment4;
