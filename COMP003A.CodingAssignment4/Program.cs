@@ -28,12 +28,12 @@ class Program
             { 
                 int choice = int.Parse(Console.ReadLine());
                 
-                if (choice == 1)
+                if (choice == 1)    // User adds a product and its quantity 
                 {
                     CycleProducts(products);
                     CycleQuantities(quantities);
                 }
-                else if (choice == 2)
+                else if (choice == 2)   // User may update a product's quantity by typing the product's name. 
                 {
                     Console.Write("\nEnter the product name: ");
                     string productName = Console.ReadLine();
@@ -100,19 +100,20 @@ class Program
                     }
                     else
                     {
-                        Console.WriteLine("Product not found, please try again.");
+                        Console.WriteLine("Product not found, please try again (Menu 3 for product names).");  // If the user enters something different from the Product names, they will be prompted to try again. 
                     }
                 }
-                else if (choice == 3)
+                else if (choice == 3)   // Inventory summary 
                 {
                     if (products[0] == null)
                     {
-                        Console.WriteLine("\nProduct list is empty!");
+                        Console.WriteLine("\nProduct list is empty!");  // If no products have been added the user will know. This also takes user back to the menu. 
                         continue;
                     }
                 
                     Console.WriteLine("\nInventory summary: ");
 
+                    // Displays the product names and their quantities 
                     if (products[0] != null)
                     {
                         Console.WriteLine($"- {products[0]}: {quantities[0]}");
@@ -166,12 +167,13 @@ class Program
 
                     count = Count(count, quantities);
                     average = AverageQuantity(average, quantities);
-                    Console.WriteLine($"Total Products: {count}");
-                    Console.WriteLine($"Total Quantity: {TotalQuantity(quantities)}");
-                    Console.WriteLine($"Average Quantity: {average}");
+                    Console.WriteLine($"Total Products: {count}");  // Displays the amount of products 1-10
+                    Console.WriteLine($"Total Quantity: {TotalQuantity(quantities)}");  // Displays the total quantity
+                    Console.WriteLine($"Average Quantity: {average}");  // Displays the total average quantity 
                 }
-                else if (choice == 4)
+                else if (choice == 4)   // Exits the program
                 {
+                    Console.WriteLine("\nGoodbye!");
                     exit = false;
                 }
                 else
@@ -187,7 +189,7 @@ class Program
         }
     }
 
-    static void CycleProducts(string[] products)
+    static void CycleProducts(string[] products)    // Collects user input for product names 
     {
         try
         {
@@ -257,7 +259,7 @@ class Program
         }
     }
 
-    static void CycleQuantities(int[] quantities)
+    static void CycleQuantities(int[] quantities)   // Collects user input for product quantities
     {
         if (quantities[0] == 0)
         {
@@ -325,7 +327,7 @@ class Program
         }
     }
 
-    static int Count(int count, int[] quantities)
+    static int Count(int count, int[] quantities)   // Determines the amount of products 1-10
     {
         if (quantities[9] != 0)
         {
@@ -375,12 +377,12 @@ class Program
         return count;
     }
 
-    static int TotalQuantity(int[] quantities)
+    static int TotalQuantity(int[] quantities)  // Calculations: Adds all quantities for total quantity 
     {
         return quantities[0] + quantities[1] + quantities[2] + quantities[3] + quantities[4] + quantities[5] + quantities[6] + quantities[7] + quantities[8] + quantities[9];
     }
 
-    static double AverageQuantity(double average, int[] quantities)
+    static double AverageQuantity(double average, int[] quantities) // Calculations: Adds all quantities then divides by amount of products for the average quantity 
     {
         if (quantities[9] != 0)
         {
